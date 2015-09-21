@@ -1,0 +1,132 @@
+scriptencoding utf-8
+" Bunge's vimrc.
+"
+" This file contains the default vim options that I want across all my
+" machines. A separate file ~/.vimrc.local can be used to set environment
+" specific options, if necessary.
+"
+" Many of these settings have been inspired by various sources such as the
+" Gentoo default vimrc and many coworkers.
+
+" {{{ General settings
+
+" Use vim defaults (this happens automatically when vim finds a vimrc, but we
+" set it explicitly anyway).
+set nocompatible
+
+set bs=2
+
+" Always set auto-indenting on
+set autoindent
+
+" Indent by 2 spaces and expand tabs by default.
+set sw=2 ts=2 et
+
+" keep 50 lines of command history
+set history=50
+
+" Show the cursor position all the time
+set ruler
+
+" Keep a .viminfo file.
+set viminfo='20,\"500
+
+" Don't auto-indent text and comments (tc) but allow formatting of comments
+" using 'gq' and use the second line to recognized the amount of indentation.
+set formatoptions=q2
+
+" When doing tab completion, give the following files lower priority.
+set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
+
+" Don't interpret modelines, they can be a security risk.
+set nomodeline
+
+" Open new split windows right and above.
+set splitright
+set nosplitbelow
+
+" Set a colorcolumn.
+set colorcolumn=+1
+
+" Always leave paste mode once the paste insertion ends.
+augroup paste
+  autocmd!
+  autocmd InsertLeave * set nopaste
+augroup END
+" }}}
+
+" {{{ Custom commands
+
+" Leader for my commands.
+let mapleader="-"
+
+" Quick editing and resourcing of this vimrc.
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Quick redraw when a terminal error occurs.
+nnoremap <leader>r :redraw!<cr>
+
+" Move lines down and up with Ctrl-j and Ctrl-k respectively.
+nnoremap <C-j> :m+<CR>==
+nnoremap <C-k> :m-2<CR>==
+inoremap <C-j> <Esc>:m+1<CR>==gi
+inoremap <C-k> <Esc>:m-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Keep selection when shifting.
+vnoremap > >gv
+vnoremap < <gv
+
+" Allow unshifting with SHIFT-TAB.
+inoremap <S-Tab> <C-d>
+
+" Toggles for textwidth.
+nnoremap <leader>8 :set textwidth=80 <CR>
+nnoremap <leader>0 :set textwidth=100 <CR>
+
+" Allow toggling the colorcolumn on/off.
+function! s:ToggleColorColumn()
+  if &colorcolumn != ''
+    set colorcolumn&
+  else
+    set colorcolumn=+1
+  endif
+endfunction
+nnoremap <leader>c :call <SID>ToggleColorColumn()<cr>
+
+" Format the entire file with -=.
+nnoremap <leader>= gg=G``
+
+" Show invisible characters.
+nnoremap <leader>l :set list! <CR>
+set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+
+" Allow switching tabs with keyboard shortcuts.
+nnoremap <A-PageUp> :tabprevious<CR>
+nnoremap <A-PageDown> :tabnext<CR>
+nnoremap <silent> <A-C-PageUp> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-C-PageDown> :execute 'silent! tabmove ' . tabpagenr()<CR>
+" }}}
+
+" {{{ Syntax highlighting settings
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+
+  " Use better colors.
+  highlight CursorLine cterm=none ctermbg=darkgray
+  highlight ColorColumn cterm=none ctermbg=darkgray
+  highlight SpellBad cterm=none ctermfg=white ctermbg=darkred
+  highlight Search cterm=none ctermfg=black ctermbg=yellow
+endif
+" }}}
+
+" {{{ ~/.vimrc_local
+if filereadable(expand('~') . '/.vimrc_local')
+  source ~/.vimrc_local
+endif
+" }}}

@@ -1,0 +1,21 @@
+---
+- name: Install ipython through apt
+  apt: name=ipython
+  when: ansible_os_family == "Debian"
+  sudo: yes
+
+- name: Install ipython through pip
+  pip: name=ipython
+  when: ansible_os_family == "Darwin"
+  sudo: yes
+
+- name: Create a default ipython profile
+  command: ipython profile create --ipython-dir=~/.ipython
+  args:
+    creates: ~/.ipython/profile_default/ipython_config.py
+
+- name: Modify the ipython profile to not prompt on exit
+  replace:
+    dest=~/.ipython/profile_default/ipython_config.py
+    regexp='^.*c.TerminalInteractiveShell.confirm_exit.*$'
+    replace='c.TerminalInteractiveShell.confirm_exit = False'

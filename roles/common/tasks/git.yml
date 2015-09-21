@@ -1,0 +1,5 @@
+---
+- name: Set git identity
+  command:
+    git config --global user.name 'Philipp Bunge';
+    git config --global user.email 'buge@crimson.ch'

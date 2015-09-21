@@ -1,0 +1,7 @@
+---
+- name: Copy the zshrc
+  copy: src=zshrc dest=~/.zshrc
+
+- name: Copy the zsh directory
+  copy: src=zsh/ dest=~/.zsh
+
