@@ -5,4 +5,4 @@
 
 - name: Set git identiy email
   command:
-    git config --global user.email 'buge@crimson.ch'
+    git config --global user.email {{ email_address }}
