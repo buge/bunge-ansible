@@ -2,12 +2,12 @@
 - name: Install ipython through apt
   apt: name=ipython
   when: ansible_os_family == "Debian"
-  sudo: yes
+  become: yes
 
 - name: Install ipython through pip
   pip: name=ipython
   when: ansible_os_family == "Darwin"
-  sudo: yes
+  become: yes
 
 - name: Create a default ipython profile
   command: ipython profile create --ipython-dir=~/.ipython
