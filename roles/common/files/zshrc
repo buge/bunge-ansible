@@ -64,8 +64,9 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
 
-# Set default editor.
+# Set default editor and pager.
 export EDITOR=vim
+export PAGER=less
 
 # Alias to quickly resource this file.
 alias resource="source ${HOME}/.zshrc"
