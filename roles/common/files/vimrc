@@ -122,6 +122,11 @@ if &t_Co > 2 || has("gui_running")
   highlight ColorColumn cterm=none ctermbg=darkgray
   highlight SpellBad cterm=none ctermfg=white ctermbg=darkred
   highlight Search cterm=none ctermfg=black ctermbg=yellow
+
+  " Italic comments
+  set t_ZH=[3m
+  set t_ZR=[23m
+  highlight Comment cterm=italic
 endif
 " }}}
 

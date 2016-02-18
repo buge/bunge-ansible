@@ -1,0 +1,11 @@
+---
+- name: Make personal terminfo directory
+  file: path=~/.terminfo/s state=directory mode=0750
+
+- name: Copy screen terminfo with italics support
+  copy: src=xterm-256color-italic.terminfo dest=~/.terminfo
+
+- name: Compile terminfo
+  command: tic ~/.terminfo/xterm-256color-italic.terminfo
+
+

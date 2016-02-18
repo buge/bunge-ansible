@@ -1,5 +1,6 @@
 ---
 - include: git.yml
 - include: ipython.yml
+- include: terminfo.yml
 - include: vim.yml
 - include: zsh.yml
