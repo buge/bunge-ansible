@@ -83,6 +83,15 @@ alias l='ls -l'
 alias ll='ls -l'
 alias la='ls -la'
 
+# Make it quicker to launch tmux
+function tmx() {
+  if [[ -z "$1" ]]; then
+    >&2 echo 'Usage: tmx [NAME]'
+    return 1
+  fi
+  tmux attach-session -t "$1" 2>/dev/null || tmux new-session -s "$1"
+}
+
 # Git aliases.
 alias git-graph='git log --graph --full-history --first-parent --branches --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
