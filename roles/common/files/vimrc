@@ -8,6 +8,12 @@ scriptencoding utf-8
 " Many of these settings have been inspired by various sources such as the
 " Gentoo default vimrc and many coworkers.
 
+
+" {{{ Load required plugins
+execute pathogen#infect()
+" }}}
+
+
 " {{{ General settings
 
 " Use vim defaults (this happens automatically when vim finds a vimrc, but we

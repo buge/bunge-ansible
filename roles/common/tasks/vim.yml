@@ -1,3 +1,16 @@
 ---
+- name: Prepare autoload directory
+  file: path=~/.vim/autoload state=directory mode=0750
+
+- name: Install pathogen
+  copy: src=pathogen.vim dest=~/.vim/autoload
+
+- name: Prepare bundle directory
+  file: path=~/.vim/bundle state=directory mode=0750
+
 - name: Copy the vimrc
   copy: src=vimrc dest=~/.vimrc
+
+- name: Install vimagit
+  git: repo=https://github.com/jreybert/vimagit.git
+       dest=~/.vim/bundle/vimagit
