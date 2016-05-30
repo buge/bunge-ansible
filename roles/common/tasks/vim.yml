@@ -11,6 +11,10 @@
 - name: Copy the vimrc
   copy: src=vimrc dest=~/.vimrc
 
+- name: Install vim-autoclose
+  git: repo=https://github.com/Townk/vim-autoclose.git
+       dest=~/.vim/bundle/vim-autoclose
+
 - name: Install vimagit
   git: repo=https://github.com/jreybert/vimagit.git
        dest=~/.vim/bundle/vimagit
