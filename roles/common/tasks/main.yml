@@ -1,6 +1,13 @@
 ---
+# Ensure that we have proper environment management before doing anything else.
+- include: homebrew.yml
+  when: ansible_os_family == "Darwin"
+- include: python.yml
+
 - include: git.yml
 - include: ipython.yml
+- include: slate.yml
+  when: ansible_os_family == "Darwin"
 - include: terminfo.yml
 - include: vim.yml
 - include: zsh.yml

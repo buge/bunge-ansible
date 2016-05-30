@@ -1,4 +1,9 @@
-path=("${HOME}/bin" /opt/tmux/bin ${path})
+path=(
+  "${HOME}/bin"
+  "${HOME}/Library/Python/2.7/bin"
+  "${HOME}/opt/homebrew/bin"
+  /opt/tmux/bin
+  ${path})
 fpath=("${HOME}/.zsh/functions" ${fpath})
 
 if [[ "$TERM" = 'xterm' || "$TERM" = 'xterm-256color' ]]; then

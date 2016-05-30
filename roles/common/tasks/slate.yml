@@ -1,0 +1,8 @@
+---
+- name: Install Slate
+  homebrew_cask: name=slate
+  environment: "{{ homebrew_env }}"
+
+- name: Copy Slate config
+  copy: src=slate.js dest=~/.slate.js
+

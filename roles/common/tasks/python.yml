@@ -1,0 +1,9 @@
+---
+- name: Define Python directory
+  set_fact:
+    python_dir: "{{ lookup('env','HOME') }}/Library/Python/2.7"
+
+- name: Define Python environemnt
+  set_fact:
+    python_env:
+      PATH: "{{ ansible_env.PATH }}:{{ python_dir }}/bin"

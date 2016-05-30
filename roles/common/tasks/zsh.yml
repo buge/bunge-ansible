@@ -1,5 +1,5 @@
 ---
-- name: Copy my zshrc directory
+- name: Copy my zshrc
   copy: src=zshrc dest=~/.zshrc
 
 - name: Copy the zsh directory

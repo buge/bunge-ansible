@@ -5,14 +5,17 @@
   become: yes
 
 - name: Install ipython through pip
-  pip: name=ipython
+  pip: name=ipython extra_args="--user"
   when: ansible_os_family == "Darwin"
-  become: yes
+
+- name: Prepare ipython profile directory
+  file: path=~/.ipython state=directory mode=0750
 
 - name: Create a default ipython profile
   command: ipython profile create --ipython-dir=~/.ipython
   args:
     creates: ~/.ipython/profile_default/ipython_config.py
+  environment: "{{ python_env }}"
 
 - name: Modify the ipython profile to not prompt on exit
   replace:
