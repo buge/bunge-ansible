@@ -18,8 +18,16 @@ var nextScreen_ = function(window) {
 var center_ = function(window, screen, opt_width, opt_height) {
   var screenRect = screen.rect();
 
-  var width = !opt_width ? window.rect().width : opt_width;
-  var height = !opt_height ? window.rect().height : opt_height;
+  // Determine width and height of the window after the move, clamping it to
+  // the size of the screen.
+  var width = opt_width ? opt_width : window.rect().width;
+  if (width > screenRect.width) {
+    width = screenRect.width
+  }
+  var height = opt_height ? opt_height : window.rect().height;
+  if (height > screenRect.height) {
+    height = screenRect.height;
+  }
 
   var x = screenRect.x + (screenRect.width - width) / 2;
   var y = screenRect.y + (screenRect.height - height) / 2;
