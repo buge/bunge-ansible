@@ -18,3 +18,12 @@
 - name: Install vimagit
   git: repo=https://github.com/jreybert/vimagit.git
        dest=~/.vim/bundle/vimagit
+
+- name: Install ctags (required for tagbar)
+  homebrew: name=ctags
+  environment: "{{ homebrew_env }}"
+  when: ansible_os_family == "Darwin"
+
+- name: Install tagbar
+  git: repo=https://github.com/majutsushi/tagbar.git
+       dest=~/.vim/bundle/tagbar

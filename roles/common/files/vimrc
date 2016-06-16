@@ -109,6 +109,9 @@ nnoremap <leader>= gg=G``
 nnoremap <leader>l :set list! <CR>
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 
+" Toggle tagbar
+nnoremap <leader>t :TagbarToggle<CR>
+
 " Allow switching tabs with keyboard shortcuts.
 nnoremap <A-PageUp> :tabprevious<CR>
 nnoremap <A-PageDown> :tabnext<CR>
