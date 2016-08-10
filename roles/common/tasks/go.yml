@@ -1,0 +1,9 @@
+---
+- name: Define Go directory
+  set_fact:
+    go_dir: "{{ lookup('env','HOME') }}/opt/go"
+
+- name: Define Go environment
+  set_fact:
+    go_env:
+      GOPATH: "{{ go_dir }}"

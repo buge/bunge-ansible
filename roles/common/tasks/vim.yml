@@ -19,10 +19,25 @@
   git: repo=https://github.com/jreybert/vimagit.git
        dest=~/.vim/bundle/vimagit
 
-- name: Install ctags (required for tagbar)
+- name: Install ctags through brew (required for tagbar)
   homebrew: name=ctags
   environment: "{{ homebrew_env }}"
   when: ansible_os_family == "Darwin"
+
+- name: Install ctags through apt (required for tagbar)
+  apt: name=exuberant-ctags
+  when: ansible_os_family == "Debian"
+  become: yes
+
+- name: Install gotags through brew (required for tagbar)
+  homebrew: name=gotags
+  environment: "{{ homebrew_env }}"
+  when: ansible_os_family == "Darwin"
+
+- name: Install gotags through goget (required for tagbar)
+  command: gotags get -u github.com/jstemmer/gotags
+  environment: "{{ go_env }}"
+  when: ansible_os_family == "Debian"
 
 - name: Install tagbar
   git: repo=https://github.com/majutsushi/tagbar.git
