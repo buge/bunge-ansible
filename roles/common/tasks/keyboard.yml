@@ -1,0 +1,10 @@
+---
+- name: Create directory for OSX keyboard layouts
+  file: path="~/Library/Keyboard Layouts" state=directory mode=0700
+  when: ansible_os_family == "Darwin"
+
+- name: Copy OSX keyboard layout
+  copy: src=us_with_phi.bundle dest="~/Library/Keyboard Layouts"
+  when: ansible_os_family == "Darwin"
+
+# TODO(bunge): Figure out how to actually set the keyboard layout.
