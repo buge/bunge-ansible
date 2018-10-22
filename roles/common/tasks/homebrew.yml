@@ -17,10 +17,7 @@
     creates: "{{ homebrew_dir }}/bin/brew"
     warn: no
 
-- name: Update homebrew and upgrade all packages
-  homebrew: update_homebrew=yes upgrade_all=yes
+- name: Update homebrew
+  homebrew: update_homebrew=yes
   environment: "{{ homebrew_env }}"
 
-- name: Tap the Homebrew Cask repository.
-  homebrew_tap: tap=caskroom/cask state=present
-  environment: "{{ homebrew_env }}"
