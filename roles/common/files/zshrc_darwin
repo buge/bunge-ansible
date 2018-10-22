@@ -1,0 +1,2 @@
+# Add a directory alias for the mounted Google Drive.
+hash -d d='/Volumes/GoogleDrive/My Drive'
