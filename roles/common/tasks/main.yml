@@ -8,6 +8,8 @@
 - include: git.yml
 - include: ipython.yml
 - include: keyboard.yml
+- include: osx_defaults.yml
+  when: ansible_os_family == "Darwin"
 - include: slate.yml
   when: ansible_os_family == "Darwin"
 - include: terminfo.yml

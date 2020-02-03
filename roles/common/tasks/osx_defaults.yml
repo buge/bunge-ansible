@@ -1,0 +1,63 @@
+---
+- name: Don’t capitalize words automatically
+  osx_defaults:
+    key: NSAutomaticCapitalizationEnabled
+    type: boolean
+    value: false
+
+- name: Don’t put in a period after two spaces
+  osx_defaults:
+    key: NSAutomaticPeriodSubstitutionEnabled
+    type: boolean
+    value: false
+
+- name: Don't automatically “correct” spelling
+  osx_defaults:
+    key: NSAutomaticSpellingCorrectionEnabled
+    type: boolean
+    value: false
+
+- name: Don't automatically “correct” spelling for the web neither
+  osx_defaults:
+    key: WebAutomaticSpellingCorrectionEnabled
+    type: boolean
+    value: false
+
+- name: Repeat keys quickly
+  osx_defaults:
+    key: KeyRepeat
+    type: integer
+    value: 2
+
+- name: Use short delay until keypress is repeated
+  osx_defaults:
+    key: InitialKeyRepeat
+    type: integer
+    value: 15
+
+- name: Scroll the way that god intended
+  osx_defaults:
+    key: com.apple.swipescrolldirection
+    type: boolean
+    value: false
+
+- name: Don’t actually navigate when scrolling
+  osx_defaults:
+    key: AppleEnableSwipeNavigateWithScrolls
+    type: boolean
+    value: false
+
+- name: Use three fingers to navigate between apps (trackpad)
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerHorizSwipeGesture
+    type: integer
+    value: 1
+
+- name: Use three fingers to navigate between apps (bluetooth)
+  osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    key: TrackpadThreeFingerHorizSwipeGesture
+    type: integer
+    value: 1
+
