@@ -1,17 +1,17 @@
 ---
 # Ensure that we have proper environment management before doing anything else.
-- include: homebrew.yml
+- import_tasks: homebrew.yml
   when: ansible_os_family == "Darwin"
-- include: go.yml
-- include: python.yml
+- import_tasks: go.yml
+- import_tasks: python.yml
 
-- include: git.yml
-- include: ipython.yml
-- include: keyboard.yml
-- include: osx_defaults.yml
+- import_tasks: git.yml
+- import_tasks: ipython.yml
+- import_tasks: keyboard.yml
+- import_tasks: osx_defaults.yml
   when: ansible_os_family == "Darwin"
-- include: slate.yml
+- import_tasks: slate.yml
   when: ansible_os_family == "Darwin"
-- include: terminfo.yml
-- include: zsh.yml
-- include: vim.yml
+- import_tasks: terminfo.yml
+- import_tasks: zsh.yml
+- import_tasks: vim.yml
