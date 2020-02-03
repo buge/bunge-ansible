@@ -12,7 +12,7 @@
   file: path="{{ homebrew_dir }}" state=directory mode=0750
 
 - name: Install Homebrew
-  shell: curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C "{{ homebrew_dir }}"
+  shell: curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "{{ homebrew_dir }}"
   args:
     creates: "{{ homebrew_dir }}/bin/brew"
     warn: no
