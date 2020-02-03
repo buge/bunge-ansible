@@ -66,3 +66,32 @@
     key: com.apple.sound.beep.feedback
     type: integer # Not sure why this is an integer...
     value: 1
+
+- name: Autohide the dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: boolean
+    value: true
+
+- name: Turn on magnification for the dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: magnification
+    type: boolean
+    value: true
+
+- name: Place the dock on the bottom
+  osx_defaults:
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: bottom
+
+- name: Use a small dock tilesize
+  osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: float
+    value: 37
+
