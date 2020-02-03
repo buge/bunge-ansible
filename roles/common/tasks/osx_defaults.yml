@@ -61,3 +61,8 @@
     type: integer
     value: 1
 
+- name: Play feedback when volume is changed
+  osx_defaults:
+    key: com.apple.sound.beep.feedback
+    type: integer # Not sure why this is an integer...
+    value: 1
