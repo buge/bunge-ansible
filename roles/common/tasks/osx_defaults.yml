@@ -35,6 +35,12 @@
     type: integer
     value: 15
 
+- name: Disable annoying dictionary lookups
+  osx_defaults:
+    key: com.apple.trackpad.forceClick
+    type: boolean
+    value: false
+
 - name: Scroll the way that god intended
   osx_defaults:
     key: com.apple.swipescrolldirection
