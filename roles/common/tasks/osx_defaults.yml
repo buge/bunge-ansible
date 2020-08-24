@@ -101,3 +101,38 @@
     type: float
     value: 37
 
+- name: Use the caps lock key as an escape key
+  shell: defaults -currentHost write -g 'com.apple.keyboard.modifiermapping.1452-633-0' '<array><dict><key>HIDKeyboardModifierMappingDst</key><integer>30064771113</integer><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer></dict></array>'
+
+- name: Install dockutil
+  homebrew: name=dockutil
+  environment: "{{ homebrew_env }}"
+
+- name: Remove unwanted dock items
+  shell: dockutil --remove '{{ item }}' --no-restart
+  environment: "{{ homebrew_env }}"
+  with_items:
+    - Siri
+    - Launchpad
+    - Safari
+    - Mail
+    - Contacts
+    - Calendar
+    - Notes
+    - Reminders
+    - Maps
+    - Photos
+    - Messages
+    - FaceTime
+    - Pages
+    - Numbers
+    - Keynote
+    - Music
+    - Podcasts
+    - TV
+    - Books
+    - App Store
+
+- name: Add terminal to dock
+  shell: dockutil --add '/System/Applications/Utilities/Terminal.app' --replacing Terminal
+  environment: "{{ homebrew_env }}"

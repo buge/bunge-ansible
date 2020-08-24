@@ -1,11 +1,10 @@
 ---
 - name: Copy my zshrc
-  copy: src=zshrc dest=~/.zshrc
+  copy: src=zshrc dest=~/.zshrc mode='0640'
 
 - name: Copy my darwin zshrc when on OSX
   when: ansible_os_family == "Darwin"
-  copy: src=zshrc_darwin dest=~/.zshrc_local
+  copy: src=zshrc_darwin dest=~/.zshrc_local mode='0640'
 
 - name: Copy the zsh directory
-  copy: src=zsh/ dest=~/.zsh
-
+  copy: src=zsh/ dest=~/.zsh mode='0640'

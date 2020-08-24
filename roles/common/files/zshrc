@@ -3,7 +3,7 @@ export GOPATH="$HOME/opt/go"
 
 path=(
   "${HOME}/bin"
-  "${HOME}/Library/Python/2.7/bin"
+  "${HOME}/Library/Python/3.7/bin"
   "${HOME}/opt/go/bin"
   "${HOME}/opt/homebrew/bin"
   /opt/tmux/bin

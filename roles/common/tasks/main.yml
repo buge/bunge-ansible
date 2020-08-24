@@ -10,7 +10,7 @@
 - import_tasks: keyboard.yml
 - import_tasks: osx_defaults.yml
   when: ansible_os_family == "Darwin"
-- import_tasks: slate.yml
+- import_tasks: osx_apps.yml
   when: ansible_os_family == "Darwin"
 - import_tasks: terminfo.yml
 - import_tasks: zsh.yml

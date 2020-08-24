@@ -1,0 +1,37 @@
+---
+- name: Install Slate
+  homebrew_cask: name=slate
+  environment: "{{ homebrew_env }}"
+
+- name: Copy Slate config
+  copy: src=slate.js dest=~/.slate.js
+
+- name: Install Chrome
+  homebrew_cask:
+    name: google-chrome
+    state: installed
+  environment: "{{ homebrew_env }}"
+
+- name: Add Chrome to dock
+  shell: dockutil --add '/Applications/Google Chrome.app' --replacing 'Google Chrome'
+  environment: "{{ homebrew_env }}"
+
+- name: Install Whatsapp
+  homebrew_cask:
+    name: whatsapp
+    state: installed
+  environment: "{{ homebrew_env }}"
+
+- name: Add Whatsapp to dock
+  shell: dockutil --add '/Applications/Whatsapp.app' --replacing 'Whatsapp'
+  environment: "{{ homebrew_env }}"
+
+- name: Install Spotify
+  homebrew_cask:
+    name: spotify
+    state: installed
+  environment: "{{ homebrew_env }}"
+
+- name: Add Spotify to dock
+  shell: dockutil --add '/Applications/Spotify.app' --replacing 'Spotify'
+  environment: "{{ homebrew_env }}"
