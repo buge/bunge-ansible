@@ -104,6 +104,13 @@
 - name: Use the caps lock key as an escape key
   shell: defaults -currentHost write -g 'com.apple.keyboard.modifiermapping.1452-633-0' '<array><dict><key>HIDKeyboardModifierMappingDst</key><integer>30064771113</integer><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer></dict></array>'
 
+- name: Prefer column view in Finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: tilesize
+    type: string
+    value: clmv
+
 - name: Install dockutil
   homebrew: name=dockutil
   environment: "{{ homebrew_env }}"
