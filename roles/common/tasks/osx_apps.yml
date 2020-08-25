@@ -16,6 +16,12 @@
   shell: dockutil --add '/Applications/Google Chrome.app' --replacing 'Google Chrome'
   environment: "{{ homebrew_env }}"
 
+- name: Install Drive
+  homebrew_cask:
+    name: google-drive-file-stream
+    state: installed
+  environment: "{{ homebrew_env }}"
+
 - name: Install Whatsapp
   homebrew_cask:
     name: whatsapp
