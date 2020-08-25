@@ -22,6 +22,16 @@
     state: installed
   environment: "{{ homebrew_env }}"
 
+- name: Install VSCode
+  homebrew_cask:
+    name: visual-studio-code
+    state: installed
+  environment: "{{ homebrew_env }}"
+
+- name: Add VSCode to dock
+  shell: dockutil --add '/Applications/Visual Studio Code.app' --replacing 'Visual Studio Code'
+  environment: "{{ homebrew_env }}"
+
 - name: Install Whatsapp
   homebrew_cask:
     name: whatsapp
