@@ -101,6 +101,13 @@
     type: float
     value: 37
 
+- name: Do not rearrange spaces based on usage
+  osx_defaults:
+    domain: com.apple.dock
+    key: mru-spaces
+    type: boolean
+    value: false
+
 - name: Use the caps lock key as an escape key
   shell: defaults -currentHost write -g 'com.apple.keyboard.modifiermapping.1452-633-0' '<array><dict><key>HIDKeyboardModifierMappingDst</key><integer>30064771113</integer><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer></dict></array>'
 
