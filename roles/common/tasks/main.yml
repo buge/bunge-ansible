@@ -15,3 +15,4 @@
 - import_tasks: terminfo.yml
 - import_tasks: zsh.yml
 - import_tasks: vim.yml
+- import_tasks: node.yml
