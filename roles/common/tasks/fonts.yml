@@ -1,0 +1,6 @@
+---
+- name: Extract Operator Mono font to OSX font directory
+  when: ansible_os_family == "Darwin"
+  ansible.builtin.unarchive:
+    src: HCo_OperatorMono.zip
+    dest: ~/Library/Fonts

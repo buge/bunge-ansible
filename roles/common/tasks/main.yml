@@ -17,3 +17,4 @@
 - import_tasks: vim.yml
 - import_tasks: node.yml
 - import_tasks: autobunge.yml
+- import_tasks: fonts.yml
