@@ -6,11 +6,11 @@
 - name: Copy Slate config
   copy: src=slate.js dest=~/.slate.js
 
-- name: Install Chrome
-  homebrew_cask:
-    name: google-chrome
-    state: installed
-  environment: "{{ homebrew_env }}"
+#- name: Install Chrome
+#  homebrew_cask:
+#    name: google-chrome
+#    state: installed
+#  environment: "{{ homebrew_env }}"
 
 - name: Add Chrome to dock
   shell: dockutil --add '/Applications/Google Chrome.app' --replacing 'Google Chrome'

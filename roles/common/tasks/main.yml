@@ -1,5 +1,6 @@
 ---
 # Ensure that we have proper environment management before doing anything else.
+- import_tasks: zsh.yml
 - import_tasks: homebrew.yml
   when: ansible_os_family == "Darwin"
 - import_tasks: go.yml
@@ -13,5 +14,4 @@
 - import_tasks: osx_apps.yml
   when: ansible_os_family == "Darwin"
 - import_tasks: terminfo.yml
-- import_tasks: zsh.yml
 - import_tasks: vim.yml

@@ -4,6 +4,7 @@ export GOPATH="$HOME/opt/go"
 path=(
   "${HOME}/bin"
   "${HOME}/Library/Python/3.7/bin"
+  "${HOME}/Library/Python/3.8/bin"
   "${HOME}/opt/go/bin"
   "${HOME}/opt/homebrew/bin"
   /opt/tmux/bin
@@ -99,6 +100,11 @@ function tmx() {
     return 1
   fi
   tmux attach-session -t "$1" 2>/dev/null || tmux new-session -s "$1"
+}
+
+# Set the working directory for the current tmux session.
+function tmx-cwd() {
+	tmux command-prompt "attach -c %1 $PWD"
 }
 
 # Git aliases.
