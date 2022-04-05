@@ -1,0 +1,11 @@
+---
+- name: Install typescript through brew
+  homebrew: name=typescript
+  environment: "{{ homebrew_env }}"
+  when: ansible_os_family == "Darwin"
+
+- name: Install node through brew
+  homebrew: name=node
+  environment: "{{ homebrew_env }}"
+  when: ansible_os_family == "Darwin"
+

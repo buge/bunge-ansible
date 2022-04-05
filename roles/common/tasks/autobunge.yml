@@ -1,0 +1,4 @@
+---
+- name: Copy autobunge configuration
+  copy: src=autobunge.toml dest=~/.autobunge.toml mode='0640'
+

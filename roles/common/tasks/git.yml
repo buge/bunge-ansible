@@ -6,3 +6,7 @@
 - name: Set git identiy email
   command:
     git config --global user.email {{ email_address }}
+
+- name: Use 'main' as the default branch name
+  command:
+    git config --global init.defaultBranch main

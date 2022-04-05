@@ -3,15 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>org.sil.ukelele.keyboardlayout.</string>
+	<string>org.sil.ukelele.keyboardlayout.us_with_phi</string>
 	<key>CFBundleName</key>
-	<string></string>
+	<string>us_with_phi</string>
 	<key>CFBundleVersion</key>
 	<string></string>
-	<key>KLInfo_U.S. with Φ</key>
+	<key>KLInfo_Bunge U.S.</key>
 	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<false/>
 		<key>TISInputSourceID</key>
-		<string>org.sil.ukelele.keyboardlayout..u.s.withφ</string>
+		<string>org.sil.ukelele.keyboardlayout.us_with_phi.bungeu.s.</string>
 		<key>TISIntendedLanguage</key>
 		<string>en</string>
 	</dict>
