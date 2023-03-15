@@ -53,6 +53,12 @@
     type: boolean
     value: false
 
+- name: Don't switch to a different space when selecting an application
+  osx_defaults:
+    key: AppleSpacesSwitchOnActivate
+    type: boolean
+    value: false
+
 - name: Use three fingers to navigate between apps (trackpad)
   osx_defaults:
     domain: com.apple.AppleMultitouchTrackpad
