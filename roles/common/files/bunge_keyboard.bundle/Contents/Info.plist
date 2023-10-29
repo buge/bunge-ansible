@@ -12,6 +12,8 @@
 	<dict>
 		<key>TICapsLockLanguageSwitchCapable</key>
 		<false/>
+		<key>TISIconIsTemplate</key>
+		<false/>
 		<key>TISInputSourceID</key>
 		<string>org.sil.ukelele.keyboardlayout.us_with_phi.bungeu.s.</string>
 		<key>TISIntendedLanguage</key>
