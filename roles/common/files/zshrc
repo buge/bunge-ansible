@@ -101,6 +101,11 @@ function tmx() {
   tmux attach-session -t "$1" 2>/dev/null || tmux new-session -s "$1"
 }
 
+# Set the working directory for the current tmux session.
+function tmx-cwd() {
+	tmux command-prompt "attach -c %1 $PWD"
+}
+
 # Git aliases.
 alias git-graph='git log --graph --full-history --first-parent --branches --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
