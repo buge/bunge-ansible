@@ -138,27 +138,24 @@
 - name: Remove unwanted dock items
   shell: dockutil --remove '{{ item }}' --no-restart
   environment: "{{ homebrew_env }}"
+  ignore_errors: true
   with_items:
-    - Siri
     - Launchpad
-    - Safari
+    - Messages
     - Mail
-    - Contacts
-    - Calendar
-    - Notes
-    - Reminders
     - Maps
     - Photos
-    - Messages
     - FaceTime
-    - Pages
-    - Numbers
-    - Keynote
+    - Calendar
+    - Contacts
+    - Reminders
+    - Notes
+    - Freeform
+    - TV
     - Music
     - Podcasts
-    - TV
-    - Books
     - App Store
+    - Safari
 
 - name: Add terminal to dock
   shell: dockutil --add '/System/Applications/Utilities/Terminal.app' --replacing Terminal

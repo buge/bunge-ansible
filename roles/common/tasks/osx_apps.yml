@@ -1,12 +1,18 @@
 ---
 - name: Install Slate
-  community.general.homebrew_cask: name=slate
+  community.general.homebrew_cask: name=fertigt-slate
   environment: "{{ homebrew_env }}"
 
 - name: Copy Slate config
   copy: src=slate.js dest=~/.slate.js
 
+- name: Check if Chrome is already installed
+  stat:
+    path: '/Applications/Google Chrome.app'
+  register: chrome
+
 - name: Install Chrome
+  when: not chrome.stat.exists
   community.general.homebrew_cask:
     name: google-chrome
     state: installed
@@ -18,7 +24,7 @@
 
 - name: Install Drive
   community.general.homebrew_cask:
-    name: google-drive-file-stream
+    name: google-drive
     state: installed
   environment: "{{ homebrew_env }}"
 
